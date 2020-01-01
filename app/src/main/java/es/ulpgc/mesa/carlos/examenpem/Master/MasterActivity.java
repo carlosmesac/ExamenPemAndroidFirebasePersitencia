@@ -49,6 +49,7 @@ public class MasterActivity
             @Override
             public void onClick(View view) {
                 presenter.startAddScreen();
+                finish();
             }
         });
 
@@ -74,7 +75,7 @@ public class MasterActivity
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finish();
+        finishAffinity();
     }
 
     @Override
