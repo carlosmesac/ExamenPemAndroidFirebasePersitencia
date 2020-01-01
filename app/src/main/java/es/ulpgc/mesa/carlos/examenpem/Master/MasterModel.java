@@ -32,8 +32,6 @@ public class MasterModel implements MasterContract.Model {
 
     @Override
     public void loadMasterItemList(final OnMasterItemListFetchedCallback callback) {
-        Person person = new Person("miguel","martín","21","ocupa","no ha hecho nada con su vida","12345678w");
-        database.child("users").child(person.getDni()).setValue(person);
 
         database.child("users").addValueEventListener(new ValueEventListener() {
             @Override

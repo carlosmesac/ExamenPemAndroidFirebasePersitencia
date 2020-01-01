@@ -62,12 +62,13 @@ public class DetailPresenter implements DetailContract.Presenter {
             @Override
             public void deletePerson(boolean error) {
                 if(!error){
-                    viewModel.data = "Deleted person";
+                    viewModel.data = "Deleted person from database";
                     view.get().displayMessage(viewModel);
-                    router.goHome();
                 }
             }
         });
+        router.goHome();
+
     }
 
     @Override
