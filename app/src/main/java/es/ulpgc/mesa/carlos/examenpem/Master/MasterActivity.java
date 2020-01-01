@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import es.ulpgc.mesa.carlos.examenpem.Person;
 import es.ulpgc.mesa.carlos.examenpem.R;
 
 public class MasterActivity
@@ -31,9 +32,9 @@ public class MasterActivity
         masterAdapter = new MasterAdapter(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String item =(String) view.getTag();
+                Person item =(Person) view.getTag();
                 presenter.selectPersonListData(item);
-                Log.d("Click on person", item);
+                Log.d("Click on person", item.toString());
             }
         });
         addButton = findViewById(R.id.deleteButton);
@@ -68,6 +69,12 @@ public class MasterActivity
         presenter.masterArrayList();
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 
     @Override

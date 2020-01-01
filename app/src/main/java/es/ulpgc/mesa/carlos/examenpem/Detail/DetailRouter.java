@@ -1,11 +1,11 @@
 package es.ulpgc.mesa.carlos.examenpem.Detail;
 
-import android.util.Log;
 import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.mesa.carlos.examenpem.AppMediator;
 import es.ulpgc.mesa.carlos.examenpem.Master.MasterActivity;
+import es.ulpgc.mesa.carlos.examenpem.Person;
 
 public class DetailRouter implements DetailContract.Router {
 
@@ -30,9 +30,9 @@ public class DetailRouter implements DetailContract.Router {
     }
 
     @Override
-    public DetailState getDataFromPreviousScreen() {
-        DetailState state = mediator.getDetailState();
-        return state;
+    public Person getDataFromPreviousScreen() {
+        Person person = mediator.getPerson();
+        return person;
     }
 
     @Override

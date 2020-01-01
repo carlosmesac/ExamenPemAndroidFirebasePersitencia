@@ -50,10 +50,12 @@ public class MasterAdapter extends RecyclerView.Adapter<MasterAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.itemView.setTag(personList.get(position).getDni());
+        holder.itemView.setTag(personList.get(position));
         holder.itemView.setOnClickListener(clickListener);
 
         Log.d("item", holder.itemView.getTag().toString());
+
+
         holder.personFullnameView.setText(personList.get(position).getSurname() + ", " +personList.get(position).getName());
         holder.personAgeView.setText(String.valueOf(personList.get(position).getAge()));
         holder.dniView.setText(String.valueOf(personList.get(position).getDni()));

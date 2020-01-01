@@ -6,5 +6,6 @@ public class DetailViewModel {
 
     // put the view state here
     public String data;
-    public Person person;
+    public Person person = new Person();
+    public String dni = "";
 }

@@ -48,7 +48,7 @@
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/descriptionLabel3"
+        android:id="@+id/dniLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/dni_label"
@@ -90,7 +90,7 @@
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/descriptionLabel"
+        android:id="@+id/cvLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/cv_label"

@@ -2,7 +2,6 @@ package es.ulpgc.mesa.carlos.examenpem.Master;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.List;
 
 import es.ulpgc.mesa.carlos.examenpem.Person;
 
@@ -63,7 +62,7 @@ public class MasterPresenter implements MasterContract.Presenter {
     }
 
     @Override
-    public void selectPersonListData(String dni) {
+    public void selectPersonListData(Person dni) {
         router.passDataToNextScreen(dni);
         router.goDetail();
     }

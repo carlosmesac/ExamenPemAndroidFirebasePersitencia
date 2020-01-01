@@ -6,6 +6,7 @@ import android.content.Context;
 import es.ulpgc.mesa.carlos.examenpem.Add.AddActivity;
 import es.ulpgc.mesa.carlos.examenpem.AppMediator;
 import es.ulpgc.mesa.carlos.examenpem.Detail.DetailActivity;
+import es.ulpgc.mesa.carlos.examenpem.Person;
 
 public class MasterRouter implements MasterContract.Router {
 
@@ -25,8 +26,8 @@ public class MasterRouter implements MasterContract.Router {
     }
 
     @Override
-    public void passDataToNextScreen(String dni) {
-        mediator.setDni(dni);
+    public void passDataToNextScreen(Person person) {
+        mediator.setPerson(person);
     }
 
 

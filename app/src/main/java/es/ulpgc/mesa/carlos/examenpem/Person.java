@@ -11,6 +11,7 @@ public class Person {
     public String dni;
 
 
+
     public Person(String name, String surname, String age, String job, String cv, String dni) {
         this.name = name;
         this.surname = surname;
@@ -18,6 +19,10 @@ public class Person {
         this.job = job;
         this.cv = cv;
         this.dni = dni;
+    }
+
+    public Person() {
+
     }
 
 

@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.FirebaseDatabase;
 
 import es.ulpgc.mesa.carlos.examenpem.AppMediator;
+import es.ulpgc.mesa.carlos.examenpem.Person;
 import es.ulpgc.mesa.carlos.examenpem.R;
 
 public class DetailActivity
@@ -25,7 +27,6 @@ public class DetailActivity
 
     private TextView name,surname,dni,age,job,cv;
 
-    private AppMediator appMediator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -34,8 +35,6 @@ public class DetailActivity
 
         // do the setup
         DetailScreen.configure(this);
-
-        presenter.getPerson(appMediator.getDni());
 
         deleteButton = findViewById(R.id.deleteButton);
 
@@ -67,9 +66,32 @@ public class DetailActivity
     @Override
     public void displayData(DetailViewModel viewModel) {
         //Log.e(TAG, "displayData()");
+        Person person = viewModel.person;
+        if(person!= null){
+            name = findViewById(R.id.nameLabel);
 
+            surname = findViewById(R.id.surnameLabel);
+
+            age = findViewById(R.id.ageLabel);
+
+            dni = findViewById(R.id.dniLabel);
+
+            job = findViewById(R.id.jobLabel);
+
+            cv = findViewById(R.id.cvLabel);
+            name.setText(person.getName());
+            surname.setText(person.getSurname());
+            dni.setText(person.getDni());
+           age.setText(person.getAge());
+           job.setText(person.getJob());
+            cv.setText(person.getCV());
+        }
     }
 
+    @Override
+    public void displayMessage(DetailViewModel viewModel) {
+        Toast.makeText(this, viewModel.data, Toast.LENGTH_SHORT).show();
+    }
 
 
     @Override

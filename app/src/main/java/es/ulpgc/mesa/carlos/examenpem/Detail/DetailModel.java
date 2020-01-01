@@ -1,7 +1,11 @@
 package es.ulpgc.mesa.carlos.examenpem.Detail;
 
+import android.app.ActivityManager;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -13,6 +17,8 @@ import es.ulpgc.mesa.carlos.examenpem.Person;
 public class DetailModel implements DetailContract.Model {
 
     public static String TAG = DetailModel.class.getSimpleName();
+
+    private Person person = new Person();
 
     private DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users");
     public DetailModel() {
@@ -26,17 +32,11 @@ public class DetailModel implements DetailContract.Model {
     }
 
     @Override
-    public void loadPersonData(final String dni, final OnDetailItemCallback callback) {
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+    public void deletePerson(Person person, final OnDeletePerson callback) {
+        reference.child(person.getDni()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Person person = (Person) dataSnapshot.child(dni).getValue();
-                callback.setPerson(person);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public void onSuccess(Void aVoid) {
+                callback.deletePerson(false);
             }
         });
     }

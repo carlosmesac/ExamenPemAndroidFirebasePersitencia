@@ -27,6 +27,16 @@ public class AppMediator extends Application {
 
     public String dni;
 
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public Person person;
+
     public MasterState getMasterState() {
         return masterState;
     }
@@ -65,6 +75,7 @@ public class AppMediator extends Application {
         masterState = new MasterState();
         detailState = new DetailState();
         addState = new AddState();
-        dni = "";
+        this.dni = "";
+        person = new Person();
     }
 }

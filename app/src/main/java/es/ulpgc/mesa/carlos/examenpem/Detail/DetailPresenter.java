@@ -1,5 +1,7 @@
 package es.ulpgc.mesa.carlos.examenpem.Detail;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.mesa.carlos.examenpem.AppMediator;
@@ -23,13 +25,15 @@ public class DetailPresenter implements DetailContract.Presenter {
         // Log.e(TAG, "fetchData()");
 
         // use passed state if is necessary
-        DetailState state = router.getDataFromPreviousScreen();
-        if (state != null) {
+        Person person = router.getDataFromPreviousScreen();
+        if (person != null) {
 
             // update view and model state
-            viewModel.data = state.data;
+            viewModel.person = person;
 
+            Log.d("dni", viewModel.dni);
             // update the view
+
             view.get().displayData(viewModel);
 
             return;
@@ -42,21 +46,10 @@ public class DetailPresenter implements DetailContract.Presenter {
         viewModel.data = data;
 
         // update the view
-        view.get().displayData(viewModel);
 
     }
 
-    @Override
-    public void getPerson(String dni) {
-        model.loadPersonData(dni, new DetailContract.Model.OnDetailItemCallback() {
-            @Override
-            public void setPerson(Person person) {
-                viewModel.person = person;
-                view.get().displayData(viewModel);
-            }
-        });
 
-    }
 
     @Override
     public void goHome() {
@@ -65,7 +58,16 @@ public class DetailPresenter implements DetailContract.Presenter {
 
     @Override
     public void deletePerson() {
-
+        model.deletePerson(viewModel.person, new DetailContract.Model.OnDeletePerson() {
+            @Override
+            public void deletePerson(boolean error) {
+                if(!error){
+                    viewModel.data = "Deleted person";
+                    view.get().displayMessage(viewModel);
+                    router.goHome();
+                }
+            }
+        });
     }
 
     @Override

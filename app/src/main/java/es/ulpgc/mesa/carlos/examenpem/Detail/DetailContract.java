@@ -10,6 +10,8 @@ public interface DetailContract {
         void injectPresenter(Presenter presenter);
 
         void displayData(DetailViewModel viewModel);
+
+        void displayMessage(DetailViewModel viewModel);
     }
 
     interface Presenter {
@@ -21,8 +23,6 @@ public interface DetailContract {
 
         void fetchData();
 
-        void getPerson(String dni);
-
         void goHome();
 
         void deletePerson();
@@ -31,11 +31,12 @@ public interface DetailContract {
     interface Model {
         String fetchData();
 
-        interface OnDetailItemCallback {
-            void setPerson(Person person);
+
+        interface OnDeletePerson {
+            void deletePerson(boolean error);
         }
 
-        void loadPersonData(String dni, OnDetailItemCallback callback);
+        void deletePerson(Person person,OnDeletePerson callback);
     }
 
     interface Router {
@@ -43,7 +44,7 @@ public interface DetailContract {
 
         void passDataToNextScreen(DetailState state);
 
-        DetailState getDataFromPreviousScreen();
+        Person getDataFromPreviousScreen();
 
         void goHome();
     }

@@ -2,7 +2,6 @@ package es.ulpgc.mesa.carlos.examenpem.Master;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.List;
 
 import es.ulpgc.mesa.carlos.examenpem.Person;
 
@@ -27,7 +26,7 @@ public interface MasterContract {
 
         void masterArrayList();
 
-        void selectPersonListData(String dni);
+        void selectPersonListData(Person dni);
     }
 
     interface Model {
@@ -44,7 +43,7 @@ public interface MasterContract {
     interface Router {
         void navigateToNextScreen();
 
-        void passDataToNextScreen(String dni);
+        void passDataToNextScreen(Person person);
 
         MasterState getDataFromPreviousScreen();
 
