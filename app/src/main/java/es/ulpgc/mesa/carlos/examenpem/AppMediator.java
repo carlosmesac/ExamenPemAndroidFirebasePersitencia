@@ -7,6 +7,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import es.ulpgc.mesa.carlos.examenpem.Add.AddScreen;
 import es.ulpgc.mesa.carlos.examenpem.Add.AddState;
 import es.ulpgc.mesa.carlos.examenpem.Detail.DetailState;
+import es.ulpgc.mesa.carlos.examenpem.Edit.EditState;
 import es.ulpgc.mesa.carlos.examenpem.Master.MasterState;
 
 public class AppMediator extends Application {
@@ -16,6 +17,7 @@ public class AppMediator extends Application {
 
     public AddState addState;
 
+    public EditState editState;
 
     public String getDni() {
         return dni;
@@ -46,6 +48,14 @@ public class AppMediator extends Application {
 
     }
 
+    public EditState getEditState() {
+        return editState;
+    }
+
+    public void setEditState(EditState editState) {
+        this.editState = editState;
+    }
+
     public DetailState getDetailState() {
         return detailState;
     }
@@ -74,6 +84,7 @@ public class AppMediator extends Application {
         FirebaseDatabase.getInstance().getReference().keepSynced(true);
         masterState = new MasterState();
         detailState = new DetailState();
+        editState = new EditState();
         addState = new AddState();
         this.dni = "";
         person = new Person();

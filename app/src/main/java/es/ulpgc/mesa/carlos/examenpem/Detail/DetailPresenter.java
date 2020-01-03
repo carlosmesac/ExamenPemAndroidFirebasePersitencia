@@ -72,6 +72,16 @@ public class DetailPresenter implements DetailContract.Presenter {
     }
 
     @Override
+    public void goEdit() {
+        router.goEdit();
+    }
+
+    @Override
+    public void personData() {
+        router.passDataToNextScreen(viewModel.person);
+    }
+
+    @Override
     public void injectView(WeakReference<DetailContract.View> view) {
         this.view = view;
     }

@@ -10,5 +10,6 @@
     <string name="add_button_label">Add</string>
     <string name="dni_label">DNI:</string>
     <string name="delete_button_label">delete</string>
+    <string name="edit_button_label">Edit</string>
 
 </resources>

@@ -25,6 +25,8 @@ public class DetailActivity
 
     private Button cancelButton;
 
+    private Button editButton;
+
     private TextView name,surname,dni,age,job,cv;
 
     @Override
@@ -40,6 +42,8 @@ public class DetailActivity
 
         cancelButton = findViewById(R.id.cancelButton);
 
+        editButton = findViewById(R.id.editButton);
+
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +55,13 @@ public class DetailActivity
             @Override
             public void onClick(View v) {
                 presenter.deletePerson();
+            }
+        });
+
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.goEdit();
             }
         });
     }
@@ -85,6 +96,8 @@ public class DetailActivity
            age.setText(person.getAge());
            job.setText(person.getJob());
             cv.setText(person.getCV());
+            presenter.personData();
+
         }
     }
 

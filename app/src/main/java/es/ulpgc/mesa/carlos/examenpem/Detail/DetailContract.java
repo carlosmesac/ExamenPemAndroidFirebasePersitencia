@@ -26,6 +26,10 @@ public interface DetailContract {
         void goHome();
 
         void deletePerson();
+
+        void goEdit();
+
+        void personData();
     }
 
     interface Model {
@@ -42,10 +46,12 @@ public interface DetailContract {
     interface Router {
         void navigateToNextScreen();
 
-        void passDataToNextScreen(DetailState state);
+        void passDataToNextScreen(Person person);
 
         Person getDataFromPreviousScreen();
 
         void goHome();
+
+        void goEdit();
     }
 }
