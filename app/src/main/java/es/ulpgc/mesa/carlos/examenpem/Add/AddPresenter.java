@@ -1,6 +1,7 @@
 package es.ulpgc.mesa.carlos.examenpem.Add;
 
 import android.util.Log;
+import android.widget.ImageView;
 
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -55,9 +56,9 @@ public class AddPresenter implements AddContract.Presenter {
     }
 
     @Override
-    public void addPerson( String nameText,  String surnameText,  String ageText,  String jobText,  String cvText,  String dniText) {
+    public void addPerson(String nameText, String surnameText, String ageText, String jobText, String cvText, String dniText, ImageView imageView) {
 
-        model.addPerson(nameText, surnameText, ageText, jobText, cvText, dniText, new AddContract.Model.CreatePersonEntrycCallback() {
+        model.addPerson(nameText, surnameText, ageText, jobText, cvText, dniText,imageView, new AddContract.Model.CreatePersonEntrycCallback() {
             @Override
             public void onAddPerson(boolean error) {
                 if(!error){

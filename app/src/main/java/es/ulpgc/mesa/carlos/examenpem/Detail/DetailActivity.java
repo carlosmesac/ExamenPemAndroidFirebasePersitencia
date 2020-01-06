@@ -3,6 +3,7 @@ package es.ulpgc.mesa.carlos.examenpem.Detail;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,8 @@ public class DetailActivity
 
     private TextView name,surname,dni,age,job,cv;
 
+    private ImageView imageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -43,6 +46,7 @@ public class DetailActivity
         cancelButton = findViewById(R.id.cancelButton);
 
         editButton = findViewById(R.id.editButton);
+
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +75,7 @@ public class DetailActivity
         super.onResume();
 
         // load the data
+
         presenter.fetchData();
     }
 
@@ -90,16 +95,22 @@ public class DetailActivity
             job = findViewById(R.id.jobLabel);
 
             cv = findViewById(R.id.cvLabel);
+
+            imageView = findViewById(R.id.image);
+
             name.setText(person.getName());
             surname.setText(person.getSurname());
             dni.setText(person.getDni());
            age.setText(person.getAge());
            job.setText(person.getJob());
             cv.setText(person.getCV());
+            imageView.setImageBitmap(viewModel.image);
             presenter.personData();
 
         }
     }
+
+
 
     @Override
     public void displayMessage(DetailViewModel viewModel) {

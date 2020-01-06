@@ -1,5 +1,8 @@
 package es.ulpgc.mesa.carlos.examenpem.Detail;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
@@ -30,7 +33,7 @@ public class DetailPresenter implements DetailContract.Presenter {
 
             // update view and model state
             viewModel.person = person;
-
+            viewModel.image = decodeBase64(person.getDni());
             Log.d("dni", viewModel.dni);
             // update the view
 
@@ -71,6 +74,12 @@ public class DetailPresenter implements DetailContract.Presenter {
 
     }
 
+
+    private static Bitmap decodeBase64(String input) {
+        byte[] decodedByte = Base64.decode(input, 0);
+        return BitmapFactory
+                .decodeByteArray(decodedByte, 0, decodedByte.length);
+    }
     @Override
     public void goEdit() {
         router.goEdit();

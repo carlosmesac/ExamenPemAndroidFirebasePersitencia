@@ -1,5 +1,7 @@
 package es.ulpgc.mesa.carlos.examenpem.Detail;
 
+import android.graphics.Bitmap;
+
 import es.ulpgc.mesa.carlos.examenpem.Person;
 
 public class DetailViewModel {
@@ -8,4 +10,5 @@ public class DetailViewModel {
     public String data;
     public Person person = new Person();
     public String dni = "";
+    public Bitmap image;
 }

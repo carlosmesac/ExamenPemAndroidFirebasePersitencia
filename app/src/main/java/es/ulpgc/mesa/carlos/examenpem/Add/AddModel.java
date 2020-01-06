@@ -1,6 +1,9 @@
 package es.ulpgc.mesa.carlos.examenpem.Add;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
@@ -27,7 +30,12 @@ public class AddModel implements AddContract.Model {
     }
 
     @Override
-    public void addPerson(final String name, final String surname, final String age, final String job, final String cv, final String dni, final CreatePersonEntrycCallback callback) {
+    public void addPerson(final String name, final String surname, final String age, final String job, final String cv, final String dni, ImageView imageView, final CreatePersonEntrycCallback callback) {
+
+        imageView.setDrawingCacheEnabled(true);
+        imageView.buildDrawingCache();
+        Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

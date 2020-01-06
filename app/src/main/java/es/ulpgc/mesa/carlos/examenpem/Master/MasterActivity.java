@@ -30,12 +30,12 @@ public class MasterActivity
         //llenamos la tableView
         // adapter and button
         masterAdapter = new MasterAdapter(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Person item =(Person) view.getTag();
-                presenter.selectPersonListData(item);
-                Log.d("Click on person", item.toString());
-            }
+                @Override
+                public void onClick(View view) {
+                    Person item =(Person) view.getTag();
+                    presenter.selectPersonListData(item);
+                    Log.d("Click on person", item.toString());
+                }
         });
         addButton = findViewById(R.id.deleteButton);
 
