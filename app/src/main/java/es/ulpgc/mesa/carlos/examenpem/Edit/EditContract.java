@@ -26,13 +26,13 @@ public interface EditContract {
 
         void goHome();
 
-        void editValues(String name, String surname, String age, String job, String cv, String dni);
+        void editValues(String name, String surname, String age, String job, String cv, String dni,String valoracion);
     }
 
     interface Model {
         String fetchData();
 
-        void editPerson(final String name, final String surname, final String age, String job, String cv, final String dni, final EditContract.Model.EditPersonEntrycCallback callback);
+        void editPerson(final String name, final String surname, final String age, String job, String cv, final String dni, String valoracion, final EditContract.Model.EditPersonEntrycCallback callback);
 
         interface EditPersonEntrycCallback {
             void onEditPerson(boolean error);

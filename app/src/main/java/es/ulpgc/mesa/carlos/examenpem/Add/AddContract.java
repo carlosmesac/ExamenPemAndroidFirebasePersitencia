@@ -23,13 +23,13 @@ public interface AddContract {
 
         void goHome();
 
-        void addPerson(String nameText, String surnameText, String dniText, String ageText, String jobText, String cvText, ImageView imageView);
+        void addPerson(String nameText, String surnameText, String dniText, String ageText, String jobText, String cvText, ImageView imageView, String valoracion);
     }
 
     interface Model {
         String fetchData();
 
-        void addPerson(final String name, final String surname, final String age, String job, String cv, final String dni, ImageView imageView, final AddContract.Model.CreatePersonEntrycCallback callback);
+        void addPerson(final String name, final String surname, final String age, String job, String cv, final String dni, ImageView imageView,String valoracion, final AddContract.Model.CreatePersonEntrycCallback callback);
 
         interface CreatePersonEntrycCallback {
             void onAddPerson(boolean error);

@@ -9,16 +9,17 @@ public class Person {
     public String job;
     public String cv;
     public String dni;
+    public String valoracion;
 
 
-
-    public Person(String name, String surname, String age, String job, String cv, String dni) {
+    public Person(String name, String surname, String age, String job, String cv, String dni, String valoracion) {
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.job = job;
         this.cv = cv;
         this.dni = dni;
+        this.valoracion = valoracion;
     }
 
     public Person() {
@@ -73,4 +74,11 @@ public class Person {
         this.dni = dni;
     }
 
+    public String getValoracion() {
+        return valoracion;
+    }
+
+    public void setValoracion(String valoracion) {
+        this.valoracion = valoracion;
+    }
 }

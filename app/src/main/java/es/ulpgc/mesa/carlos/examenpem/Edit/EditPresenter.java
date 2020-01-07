@@ -54,8 +54,8 @@ public class EditPresenter implements EditContract.Presenter {
     }
 
     @Override
-    public void editValues(String name, String surname, String age, String job, String cv, String dni) {
-        model.editPerson(name, surname, age, job, cv, dni, new EditContract.Model.EditPersonEntrycCallback() {
+    public void editValues(String name, String surname, String age, String job, String cv, String dni,String valoracion) {
+        model.editPerson(name, surname, age, job, cv, dni,valoracion, new EditContract.Model.EditPersonEntrycCallback() {
             @Override
             public void onEditPerson(boolean error) {
                 if(!error){
@@ -63,7 +63,7 @@ public class EditPresenter implements EditContract.Presenter {
                     view.get().displayMessage(viewModel);
                     router.goHome();
                 }else{
-                    viewModel.message = "Please fill in all fields";
+                    viewModel.message = "Please fill in all fields and make sure valoracion from 1 to 5";
                     view.get().displayMessage(viewModel);
                 }
             }

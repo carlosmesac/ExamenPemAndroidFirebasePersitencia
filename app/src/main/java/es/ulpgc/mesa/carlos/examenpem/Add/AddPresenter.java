@@ -56,9 +56,9 @@ public class AddPresenter implements AddContract.Presenter {
     }
 
     @Override
-    public void addPerson(String nameText, String surnameText, String ageText, String jobText, String cvText, String dniText, ImageView imageView) {
+    public void addPerson(String nameText, String surnameText, String ageText, String jobText, String cvText, String dniText, ImageView imageView, String valoracion) {
 
-        model.addPerson(nameText, surnameText, ageText, jobText, cvText, dniText,imageView, new AddContract.Model.CreatePersonEntrycCallback() {
+        model.addPerson(nameText, surnameText, ageText, jobText, cvText, dniText,imageView,valoracion, new AddContract.Model.CreatePersonEntrycCallback() {
             @Override
             public void onAddPerson(boolean error) {
                 if(!error){
@@ -66,7 +66,7 @@ public class AddPresenter implements AddContract.Presenter {
                     view.get().displayData(viewModel);
                     router.goHome();
                 }else{
-                    viewModel.message = "Please fill in all fields";
+                    viewModel.message = "Please fill in all fields and make sure valoracion is from 1 to 5";
                     view.get().displayData(viewModel);
                 }
             }

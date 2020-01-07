@@ -28,7 +28,7 @@ public class DetailActivity
 
     private Button editButton;
 
-    private TextView name,surname,dni,age,job,cv;
+    private TextView name,surname,dni,age,job,cv,valoracion;
 
     private ImageView imageView;
 
@@ -98,12 +98,14 @@ public class DetailActivity
 
             imageView = findViewById(R.id.image);
 
+            valoracion = findViewById(R.id.valoracionText);
             name.setText(person.getName());
             surname.setText(person.getSurname());
             dni.setText(person.getDni());
            age.setText(person.getAge());
            job.setText(person.getJob());
             cv.setText(person.getCV());
+            valoracion.setText(person.getValoracion());
             imageView.setImageBitmap(viewModel.image);
             presenter.personData();
 

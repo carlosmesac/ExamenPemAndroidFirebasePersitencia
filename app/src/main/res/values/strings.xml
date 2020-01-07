@@ -12,5 +12,6 @@
     <string name="delete_button_label">delete</string>
     <string name="edit_button_label">Edit</string>
     <string name="addImage">Add Image</string>
+    <string name="valoracion_label">Valoracion:</string>
 
 </resources>

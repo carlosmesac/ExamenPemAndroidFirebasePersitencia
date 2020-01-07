@@ -57,7 +57,8 @@ public class MasterAdapter extends RecyclerView.Adapter<MasterAdapter.ViewHolder
 
 
         holder.personFullnameView.setText(personList.get(position).getSurname() + ", " +personList.get(position).getName());
-        holder.personAgeView.setText(String.valueOf(personList.get(position).getAge()));
+        holder.personValoracionView.setText(String.valueOf(personList.get(position).
+    getValoracion()));
         holder.dniView.setText(String.valueOf(personList.get(position).getDni()));
 
 
@@ -71,12 +72,12 @@ public class MasterAdapter extends RecyclerView.Adapter<MasterAdapter.ViewHolder
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        final TextView personFullnameView, personAgeView, dniView;
+        final TextView personFullnameView, personValoracionView, dniView;
 
         public ViewHolder(View view) {
             super(view);
             personFullnameView = view.findViewById(R.id.fullName);
-            personAgeView = view.findViewById(R.id.age);
+            personValoracionView = view.findViewById(R.id.valoracion);
             dniView = view.findViewById(R.id.dni);
 
         }

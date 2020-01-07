@@ -44,7 +44,8 @@ public class MasterModel implements MasterContract.Model {
                     String job = dataSnapshot1.child("job").getValue(String.class);
                     String cv = dataSnapshot1.child("cv").getValue(String.class);
                     String dni = dataSnapshot1.child("dni").getValue(String.class);
-                    Person person = new Person(name, surname, age, job, cv, dni);
+                    String valoracion = dataSnapshot1.child("valoracion").getValue(String.class);
+                    Person person = new Person(name, surname, age, job, cv, dni,valoracion);
                         personArrayList.add(person);
 
 

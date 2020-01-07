@@ -27,7 +27,7 @@ public class AddActivity
 
     public Button cancelButton;
 
-    public EditText name, surname, cv , dni, job, age;
+    public EditText name, surname, cv , dni, job, age, valoracion;
 
     private AddContract.Presenter presenter;
 
@@ -55,6 +55,7 @@ public class AddActivity
         job = findViewById(R.id.jobText);
         age = findViewById(R.id.ageText);
         image = findViewById(R.id.addImage);
+        valoracion = findViewById(R.id.valoracionText);
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +66,7 @@ public class AddActivity
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.addPerson(name.getText().toString().trim(),surname.getText().toString().trim(),age.getText().toString().trim(),job.getText().toString().trim(),cv.getText().toString().trim(),dni.getText().toString().trim(),image);
+                presenter.addPerson(name.getText().toString().trim(),surname.getText().toString().trim(),age.getText().toString().trim(),job.getText().toString().trim(),cv.getText().toString().trim(),dni.getText().toString().trim(),image,valoracion.getText().toString().trim());
             }
         });
         image.setOnClickListener(new View.OnClickListener() {

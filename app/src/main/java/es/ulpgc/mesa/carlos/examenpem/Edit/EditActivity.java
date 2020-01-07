@@ -22,7 +22,7 @@ public class EditActivity
 
     private Button editButton;
 
-    private EditText name,surname,dni,age,job,cv;
+    private EditText name,surname,dni,age,job,cv, valoracion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class EditActivity
 
         cv = findViewById(R.id.cvText);
 
-
+valoracion = findViewById(R.id.valoracionText);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +57,7 @@ public class EditActivity
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.editValues(name.getText().toString().trim(),surname.getText().toString().trim(),age.getText().toString().trim(),job.getText().toString().trim(),cv.getText().toString().trim(),dni.getText().toString().trim());
+                presenter.editValues(name.getText().toString().trim(),surname.getText().toString().trim(),age.getText().toString().trim(),job.getText().toString().trim(),cv.getText().toString().trim(),dni.getText().toString().trim(),valoracion.getText().toString().trim());
             }
         });
 
@@ -89,10 +89,12 @@ public class EditActivity
 
         cv = findViewById(R.id.cvText);
 
+        valoracion = findViewById(R.id.valoracionText);
         name.setText(viewModel.person.getName());
         surname.setText(viewModel.person.getSurname());
         dni.setText(viewModel.person.getDni());
         dni.setEnabled(false);
+        valoracion.setText(viewModel.person.getValoracion());
         age.setText(viewModel.person.getAge());
         job.setText(viewModel.person.getJob());
         cv.setText(viewModel.person.getCV());
